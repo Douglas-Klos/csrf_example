@@ -1,0 +1,30 @@
+<html>
+<body>
+    <h1>Enter Grades</h1>
+    <h2>Enter a Grade</h2>
+    <form method="POST">
+        <label for="student">Student</label>
+        <input type="text" name="student"><br>
+
+
+        <label for="assignment">Assignment</label>
+        <input type="text" name="assignment"><br>
+
+        <label for="grade">Grade</label>
+        <input type="text" name="grade"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    </form>
+
+    <h2>Existing Grades</h2>
+    <ul>
+    {% for grade in grades %}
+        <li>{{ grade.student }} - {{ grade.assignment }} - {{ grade.grade }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
